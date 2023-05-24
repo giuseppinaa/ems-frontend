@@ -12,7 +12,7 @@ const TaskList = () => {
   });
 
   useEffect(() => {
-    axios.get('http://localhost:8080/tasks')
+    axios.get('https://ems-backend-31e1.onrender.com/tasks')
       .then(response => {
         setTasks(response.data.data);
       })
@@ -28,7 +28,7 @@ const TaskList = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8080/tasks', newTask)
+    axios.post('https://ems-backend-31e1.onrender.com/tasks', newTask)
       .then(response => {
         setTasks([...tasks, response.data.data]);
         setNewTask({
@@ -46,7 +46,7 @@ const TaskList = () => {
   const handleDelete = (id) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this task?');
     if (confirmDelete) {
-      axios.delete(`http://localhost:8080/tasks/${id}`)
+      axios.delete(`https://ems-backend-31e1.onrender.com/tasks/${id}`)
         .then(response => {
           setTasks(tasks.filter(task => task.id !== id));
         })

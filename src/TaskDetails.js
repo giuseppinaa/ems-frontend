@@ -14,7 +14,7 @@ const TaskDetails = () => {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:8080/tasks/${id}`)
+			.get(`https://ems-backend-31e1.onrender.com/tasks/${id}`)
 			.then((response) => {
 				setTask(response.data.data);
 				setDescription(response.data.data.description);
@@ -28,7 +28,7 @@ const TaskDetails = () => {
 
 		if (employeeId) {
 			axios
-				.get(`http://localhost:8080/employees/${employeeId}`)
+				.get(`https://ems-backend-31e1.onrender.com/employees/${employeeId}`)
 				.then((response) => {
 					setEmployee(response.data.data);
 				})
@@ -45,7 +45,7 @@ const TaskDetails = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios
-			.put(`http://localhost:8080/tasks/${id}`, {
+			.put(`https://ems-backend-31e1.onrender.com/tasks/${id}`, {
 				description: description,
 				priority: priority,
 				completed: completed,

@@ -12,7 +12,7 @@ const EmployeeList = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/employees')
+      .get('https://ems-backend-31e1.onrender.com/employees')
       .then((response) => {
         setEmployees(response.data.data);
       })
@@ -29,7 +29,7 @@ const EmployeeList = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post('http://localhost:8080/employees/create', newEmployee)
+      .post('https://ems-backend-31e1.onrender.com/employees/create', newEmployee)
       .then((response) => {
         setEmployees([...employees, response.data.data]);
         setNewEmployee({
@@ -49,12 +49,12 @@ const EmployeeList = () => {
     );
     if (confirmDelete) {
       axios
-        .get(`http://localhost:8080/employees/${employeeId}`)
+        .get(`https://ems-backend-31e1.onrender.com/employees/${employeeId}`)
         .then((response) => {
           response.data.data.tasks.forEach((task) => {
-            axios.delete(`http://localhost:8080/tasks/${task.id}`);
+            axios.delete(`https://ems-backend-31e1.onrender.com/tasks/${task.id}`);
           });
-          axios.delete(`http://localhost:8080/employees/${employeeId}`)
+          axios.delete(`https://ems-backend-31e1.onrender.com/employees/${employeeId}`)
             .then(() => {
               setEmployees(employees.filter((employee) => employee.id !== employeeId));
             })

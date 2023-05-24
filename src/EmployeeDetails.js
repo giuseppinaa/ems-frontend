@@ -11,7 +11,7 @@ const EmployeeDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/employees/${id}`)
+    axios.get(`https://ems-backend-31e1.onrender.com/employees/${id}`)
       .then(response => {
         setEmployee(response.data.data);
         setFirstName(response.data.data.first_name);
@@ -29,7 +29,7 @@ const EmployeeDetails = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put(`http://localhost:8080/employees/${id}`, {
+    axios.put(`https://ems-backend-31e1.onrender.com/employees/${id}`, {
       first_name: firstName,
       last_name: lastName,
       department: department
